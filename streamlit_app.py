@@ -1,6 +1,6 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+#### out this --- from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 
@@ -10,8 +10,9 @@ st.write(
     """Choose the fruits you want in your custom Smoothie!
     """
 )
-
-
+#### add --- SiS to SniS
+cnx = st.connection("snowflake")
+session = cnx.session()
 
 NAME_ON_ORDER = st.text_input("Name on Smoothie:")
 st.write("The name on your Smoothie will be:", NAME_ON_ORDER)
