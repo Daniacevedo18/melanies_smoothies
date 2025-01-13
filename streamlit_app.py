@@ -19,7 +19,7 @@ st.write("The name on your Smoothie will be:", NAME_ON_ORDER)
 
 
 
-session = get_active_session()
+
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 #st.dataframe(data=my_dataframe, use_container_width=True) 
 
@@ -46,6 +46,14 @@ if INGREDIENTS_LIST:
     #st.write(my_insert_stmt)
     #st.stop()
 
+    #NEW SECTION TO DISPLAY SMOOTHIEFROOT NUTRITION INFORMATION
+    import requests
+    smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+    st.text(smoothiefroot_response)
+
+
+
+    
     
     time_to_insert = st.button('Submit Order')
 
